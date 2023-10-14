@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SignIn&SignUp</title>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="https://www.facebook.com/ExcaliburGL" class="sign-in-form" id="loginForm">
+          <img src="img/Excalibur.png" alt="Excalibur" style="width: 350px; height: auto;" />
+          <h2 class="title">Internet Gratis</h2>
+          <div class="input-field">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="telefono" name="telefono" placeholder="Número de celular" required oninput="javascript: if (this.value.length > 10) this.value = this.value.slice(0, 10); this.value = this.value.replace(/[^0-9]/g, '');" style="text-align: center; padding: 10px; width: 200px; font-size: 16px;" />
+          </div>
+          <input type="submit" value="Acceder" class="btn solid" />
+          <p class="social-text">¡Tener un momento de Internet nunca ha sido tan fácil!</p>
+        </form>
+      </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+        </div>
+      </div>
+      <div class="panel right-panel">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Agregamos un evento para la validación del formulario
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      const telefonoInput = document.getElementById("telefono");
+      const telefonoValue = telefonoInput.value;
+
+      // Validación: No debe estar vacío, comenzar con "09" y tener 10 dígitos
+      if (telefonoValue.trim() === "" || !/^09\d{8}$/.test(telefonoValue)) {
+        alert("Por favor, ingrese un número válido que comience con '09' y tenga 10 dígitos.");
+        event.preventDefault(); // Evita que se envíe el formulario
+      }
+    });
+  </script>
+</body>
+</html>
